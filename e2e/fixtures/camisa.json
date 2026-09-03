@@ -1,0 +1,14 @@
+{
+    "sucesso":{
+        "name": "Camisa",
+        "tamanho": "GG",
+        "cor": "Branco",
+        "preco": 259.90
+    },
+    "erro":{
+        "name": "Ketchup",
+        "tamanho": "M",
+        "cor": "Vermelho",
+        "preco": 8.00
+    }
+}
