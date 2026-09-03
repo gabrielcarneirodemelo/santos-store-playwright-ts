@@ -20,7 +20,7 @@ test.beforeEach(({ page }) => {
 })
 
 test.describe('Adicionar produto no carrinho', () => {
-    test('adicionar ítem no carrinho', async ({ page }) => {
+    test.only('adicionar ítem no carrinho', async ({ page }) => {
 
         const camisa_dados = camisa.sucesso as CamisaModel;
 
@@ -32,5 +32,13 @@ test.describe('Adicionar produto no carrinho', () => {
         await cartPage.clicarNoBotaoComprar();
         await cartPage.preenchimentoCampoCep();
         await cartPage.clicarBotaoConsultarCEP();
+        await cartPage.validarProdutoNoCarrinho();
+        await cartPage.validarValorTotal1Produto();
+        await cartPage.clicarAdicionarMaisProdutos();
+        await cartPage.clicarAdicionarCamisa2();
+        await cartPage.selecionarTamanhoCamisa();
+        await cartPage.clicarNoBotaoComprar();
+        await cartPage.validarValorTotal2Produtos();
+
     })
 })
