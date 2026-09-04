@@ -37,7 +37,7 @@ test.describe('Adicionar produtos no carrinho', () => {
         await cartPage.preenchimentoCampoCep();
         await cartPage.clicarBotaoConsultarCEP();
         await cartPage.validarProdutoNoCarrinho();
-            await cartPage.validarValorTotal1Produto(camisa1);
+        await cartPage.validarValorTotal1Produto(camisa1);
         await cartPage.clicarAdicionarMaisProdutos();
         await searchPage.clicarCamisa(1);
         await productPage.selecionarTamanhoCamisa(0);

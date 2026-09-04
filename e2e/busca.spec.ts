@@ -28,7 +28,7 @@ test.describe('Testes de pesquisa de item que existe', () => {
         await homePage.goto();
         await homePage.fecharModal();
         await searchPage.pesquisarCamisa(camisa_dados);
-        await searchPage.clicarCamisa();
+        await searchPage.clicarCamisa(0);
         await searchPage.validarDescricaoProduto();
 
     })
