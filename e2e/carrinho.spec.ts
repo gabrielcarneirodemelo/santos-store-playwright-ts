@@ -23,7 +23,7 @@ test.beforeEach(({ page }) => {
 })
 
 test.describe('Adicionar produto no carrinho', () => {
-    test.only('adicionar ítem no carrinho', async ({ page }) => {
+    test('adicionar ítem no carrinho', async ({ page }) => {
 
         const camisa1 = camisa.camisa1 as CamisaModel;
         const camisa2 = camisa.camisa2 as CamisaModel;
