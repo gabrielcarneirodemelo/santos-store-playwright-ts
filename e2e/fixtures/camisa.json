@@ -1,9 +1,15 @@
 {
-    "sucesso":{
-        "name": "Camisa",
+    "camisa1":{
+        "name": "Camisa Santos I 26/27 s/n Torcedor Umbro Masculina",
         "tamanho": "GG",
-        "cor": "Branco",
-        "preco": 259.90
+        "cor": "Branco+Bronze",
+        "preco": 249.99
+    },
+    "camisa2":{
+        "name": "Camisa Santos II 26/27 s/n Torcedor Umbro Masculina",
+        "tamanho": "P",
+        "cor": "Branco+Preto",
+        "preco": 249.99
     },
     "erro":{
         "name": "Ketchup",

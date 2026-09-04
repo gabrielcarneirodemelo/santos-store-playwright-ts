@@ -23,15 +23,16 @@ test.beforeEach(({ page }) => {
 })
 
 test.describe('Adicionar produto no carrinho', () => {
-    test('adicionar ítem no carrinho', async ({ page }) => {
+    test.only('adicionar ítem no carrinho', async ({ page }) => {
 
-        const camisa_dados = camisa.sucesso as CamisaModel;
+        const camisa1 = camisa.camisa1 as CamisaModel;
+        const camisa2 = camisa.camisa2 as CamisaModel;
 
         await homePage.goto();
         await homePage.fecharModal();
-        await searchPage.pesquisarCamisa(camisa_dados);
+        await searchPage.pesquisarCamisa(camisa1);
         await searchPage.clicarCamisa();
-        await productPage.selecionarTamanhoCamisa();
+        await productPage.selecionarTamanhoCamisa(3);
         await cartPage.clicarNoBotaoComprar();
         await cartPage.preenchimentoCampoCep();
         await cartPage.clicarBotaoConsultarCEP();
@@ -39,9 +40,14 @@ test.describe('Adicionar produto no carrinho', () => {
         await cartPage.validarValorTotal1Produto();
         await cartPage.clicarAdicionarMaisProdutos();
         await cartPage.clicarAdicionarCamisa2();
-        await productPage.selecionarTamanhoCamisa();
+        await productPage.selecionarTamanhoCamisa(0);
         await cartPage.clicarNoBotaoComprar();
         await cartPage.validarValorTotal2Produtos();
-
+        await cartPage.validarNomeCamisaNoCarrinho(camisa1,0);
+        await cartPage.validarNomeCamisaNoCarrinho(camisa2,1);
+        await cartPage.validarTamanhoCamisaNoCarrinho(camisa1,0);
+        await cartPage.validarTamanhoCamisaNoCarrinho(camisa2,2);
+        await cartPage.removerProdutoDoCarrinho();
+        await cartPage.validarValorTotal1Produto();
     })
 })

@@ -9,11 +9,11 @@ export class ProductPage{
 
     constructor(page: Page){
         this.page = page;
-        this.tamanhoCamisa = page.locator('//*[@class="size__link"]').nth(3);
+        this.tamanhoCamisa = page.locator('//*[@class="size__link"]');
     }
 
-    async selecionarTamanhoCamisa(){
-        await this.tamanhoCamisa.click();
+    async selecionarTamanhoCamisa(indice: number){
+        await this.tamanhoCamisa.nth(indice).click();
     }
 
 

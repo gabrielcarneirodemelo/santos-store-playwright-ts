@@ -23,7 +23,7 @@ test.describe('Testes de pesquisa de item que existe', () => {
 
     test('deve ser possivel pesquisar item', async ({ page }) => {
 
-        const camisa_dados = camisa.sucesso as CamisaModel;
+        const camisa_dados = camisa.camisa1 as CamisaModel;
 
         await homePage.goto();
         await homePage.fecharModal();
