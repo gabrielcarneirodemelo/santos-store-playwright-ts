@@ -10,9 +10,7 @@ export class CartPage{
     readonly produtoNoCarrinho: Locator;
     readonly validaValorTotalProduto: Locator;
     readonly adicionarMaisProdutos: Locator;
-    readonly adicionarCamisa2: Locator;
     readonly camisaNomeCarrinho: Locator;
-    readonly camisaTamanhoCarrinho: Locator;
     readonly iconeDeRemoverProdutoDoCarrinho: Locator;
 
     constructor(page: Page){
@@ -23,13 +21,11 @@ export class CartPage{
         this.produtoNoCarrinho = page.locator('//*[@class="product-item"]');
         this.validaValorTotalProduto = page.locator('//*[@class="summary__item-value"]').nth(0);
         this.adicionarMaisProdutos = page.locator('//*[@class="seller-tooltip__link"]');
-        this.adicionarCamisa2 = page.locator('//*[@class="card__description--name"]').nth(1);
         this.camisaNomeCarrinho = page.locator('//*[@qa-auto="product-name"]');
-        this.camisaTamanhoCarrinho = page.locator('//*[@class="custom__text"]');
         this.iconeDeRemoverProdutoDoCarrinho = page.locator('//*[@qa-auto="product-btn-remove"]').nth(1);
     }
 
-    
+
 
     async clicarNoBotaoComprar(){
         await this.botaoComprar.click();
@@ -55,20 +51,12 @@ export class CartPage{
         await this.adicionarMaisProdutos.click();
     }
 
-    async clicarAdicionarCamisa2(){
-        await this.adicionarCamisa2.click();
-    }
-
     async validarValorTotal2Produtos(){
         await expect(this.validaValorTotalProduto).toHaveText('R$ 499,98');
     }
 
     async validarNomeCamisaNoCarrinho(camisa_dados: CamisaModel, indice: number){  
         await expect(this.camisaNomeCarrinho.nth(indice)).toHaveText(camisa_dados.name);
-    }
-
-    async validarTamanhoCamisaNoCarrinho(camisa_dados: CamisaModel, indice: number){  
-        await expect(this.camisaTamanhoCarrinho.nth(indice)).toHaveText(`Tamanho: ${camisa_dados.tamanho}`);
     }
 
     async removerProdutoDoCarrinho(){

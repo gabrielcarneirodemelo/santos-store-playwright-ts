@@ -6,7 +6,7 @@ export class SearchPage{
     readonly page;
     readonly campoBusca: Locator;
     readonly botaoBusca: Locator;
-    readonly primeiraCamisa: Locator;
+    readonly selecionarCamisa: Locator;
     readonly validaNomeCamisa: Locator;
     readonly mensagemErro: Locator;
 
@@ -14,7 +14,7 @@ export class SearchPage{
         this.page = page;
         this.campoBusca = page.locator('//*[@id="search"]');
         this.botaoBusca = page.locator('//*[@class="search__button"]');
-        this.primeiraCamisa = page.locator('//*[@class="card__link"]').first();
+        this.selecionarCamisa = page.locator('//*[@class="card__link"]');
         this.validaNomeCamisa = page.locator('//*[@class="features--title"]');
         this.mensagemErro = page.locator('//*[@id="content"]/section/div[1]/h1');
     }
@@ -26,8 +26,8 @@ export class SearchPage{
         await this.botaoBusca.click();
     }
 
-    async clicarCamisa() {
-        await this.primeiraCamisa.click();
+    async clicarCamisa(indice:number) {
+        await this.selecionarCamisa.nth(indice).click();
     }
 
     async validarDescricaoProduto() {
