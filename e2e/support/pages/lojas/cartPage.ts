@@ -1,7 +1,7 @@
 import { Page, expect, Locator } from '@playwright/test';
 import { CamisaModel } from '../../../fixtures/camisa.model';
 
-export class CartPage{
+export class CartPage {
 
     readonly page;
     readonly botaoComprar: Locator;
@@ -13,7 +13,7 @@ export class CartPage{
     readonly camisaNomeCarrinho: Locator;
     readonly iconeDeRemoverProdutoDoCarrinho: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page) {
         this.page = page;
         this.botaoComprar = page.locator('//*[@class="action-buttons-main__cart"]');
         this.campoCEP = page.locator('//*[@id="cep"]');
@@ -27,39 +27,41 @@ export class CartPage{
 
 
 
-    async clicarNoBotaoComprar(){
+    async clicarNoBotaoComprar() {
         await this.botaoComprar.click();
     }
 
-    async preenchimentoCampoCep(){
+    async preenchimentoCampoCep() {
         await this.campoCEP.fill('06184-250');
     }
 
-    async clicarBotaoConsultarCEP(){
+    async clicarBotaoConsultarCEP() {
         await this.botaoConsultarCEP.click();
     }
 
-    async validarProdutoNoCarrinho(){
+    async validarProdutoNoCarrinho() {
         await expect(this.produtoNoCarrinho).toBeVisible();
     }
 
-    async validarValorTotal1Produto(){
-        await expect(this.validaValorTotalProduto).toHaveText('R$ 249,99');
+    async validarValorTotal1Produto(camisa_dados: CamisaModel) {
+        const valorTotal = await this.validaValorTotalProduto.innerText();
+
+        expect(valorTotal.trim()).toBe(`R$ ${camisa_dados.preco}`);
     }
 
-    async clicarAdicionarMaisProdutos(){
+    async clicarAdicionarMaisProdutos() {
         await this.adicionarMaisProdutos.click();
     }
 
-    async validarValorTotal2Produtos(){
+    async validarValorTotal2Produtos() {
         await expect(this.validaValorTotalProduto).toHaveText('R$ 499,98');
     }
 
-    async validarNomeCamisaNoCarrinho(camisa_dados: CamisaModel, indice: number){  
+    async validarNomeCamisaNoCarrinho(camisa_dados: CamisaModel, indice: number) {
         await expect(this.camisaNomeCarrinho.nth(indice)).toHaveText(camisa_dados.name);
     }
 
-    async removerProdutoDoCarrinho(){
+    async removerProdutoDoCarrinho() {
         await this.iconeDeRemoverProdutoDoCarrinho.click();
     }
 

@@ -2,5 +2,5 @@ export interface CamisaModel {
     name:  string
     tamanho: string
     cor: string
-    preco: number
+    preco: string
 }

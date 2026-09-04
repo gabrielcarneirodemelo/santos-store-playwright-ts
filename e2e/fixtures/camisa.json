@@ -3,18 +3,18 @@
         "name": "Camisa Santos I 26/27 s/n Torcedor Umbro Masculina",
         "tamanho": "GG",
         "cor": "Branco+Bronze",
-        "preco": 249.99
+        "preco": "249,99"
     },
     "camisa2":{
         "name": "Camisa Santos II 26/27 s/n Torcedor Umbro Masculina",
         "tamanho": "P",
         "cor": "Branco+Preto",
-        "preco": 249.99
+        "preco": "249,99"
     },
     "erro":{
         "name": "Ketchup",
         "tamanho": "M",
         "cor": "Vermelho",
-        "preco": 8.00
+        "preco": "8.00"
     }
 }

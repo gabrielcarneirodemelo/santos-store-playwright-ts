@@ -34,6 +34,9 @@ export default defineConfig({
     trace: 'on-first-retry',
     baseURL: process.env.BASE_URL,
     screenshot: 'on',
+    launchOptions: {
+            slowMo: 1000
+        }
   },
 
   /* Configure projects for major browsers */
